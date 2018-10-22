@@ -54,7 +54,7 @@ const Blog = () => (
                     )}
                   </div>
                   <div className="entry-body">
-                    <span className="cat">{post.categories && post.categories.map(category => category.name)}</span>
+                    <span className="cat">{node.categories && node.categories.map(category => category.name)}</span>
                     <h3><Link to={`/blog/${node.slug}`} dangerouslySetInnerHTML={{ __html: node.title }}></Link></h3>
                     <p dangerouslySetInnerHTML={{ __html: node.excerpt }}></p>
                     <div className="read-more-date">
