@@ -23,8 +23,8 @@ exports.createPages = ({
     // from the fetched data that you can run queries against.
 
     // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
-        graphql(
-          `
+    graphql(
+      `
             {
               allWordpressPost {
                 edges {
@@ -39,26 +39,26 @@ exports.createPages = ({
               }
             }
           `,
-        ).then((result) => {
-          if (result.errors) {
-            console.log(result.errors);
-            reject(result.errors);
-          }
-          const postTemplate = path.resolve('./src/templates/post.js');
-          // We want to create a detailed page for each
-          // post node. We'll just use the Wordpress Slug for the slug.
-          // The Post ID is prefixed with 'POST_'
-          _.each(result.data.allWordpressPost.edges, (edge) => {
-            createPage({
-              path: `/blog/${edge.node.slug}`,
-              component: slash(postTemplate),
-              context: {
-                id: edge.node.id,
-              },
-            });
-          });
-          resolve();
+    ).then((result) => {
+      if (result.errors) {
+        console.log(result.errors);
+        reject(result.errors);
+      }
+      const postTemplate = path.resolve('./src/templates/post.js');
+      // We want to create a detailed page for each
+      // post node. We'll just use the Wordpress Slug for the slug.
+      // The Post ID is prefixed with 'POST_'
+      _.each(result.data.allWordpressPost.edges, (edge) => {
+        createPage({
+          path: `/blog/${edge.node.slug}`,
+          component: slash(postTemplate),
+          context: {
+            id: edge.node.id,
+          },
         });
+      });
+      resolve();
+    });
     // ==== END POSTS ====
   });
 };

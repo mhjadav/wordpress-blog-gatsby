@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from './header'
-import './layout.css'
-import '../static/css/bootstrap.min.css'
+import Header from './header';
+import './layout.css';
+import '../static/css/bootstrap.min.css';
 import '../static/css/style.css';
 
 const Layout = ({ children }) => (
@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <React.Fragment>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -41,13 +41,13 @@ const Layout = ({ children }) => (
         >
           {children}
         </div>
-      </>
+      </React.Fragment>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
