@@ -1,5 +1,6 @@
 import React from 'react';
 import PropType from 'prop-types';
+import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
 
@@ -16,6 +17,12 @@ const PostTemplate = (props) => {
   const { data: { wordpressPost: post } } = props;
   return (
     <Layout>
+      <Helmet
+        title={post.title}
+        meta={[
+          { name: 'description', content: post.excerpt },
+        ]}
+      />
       <Link to="/blog/">Go Back</Link>
       <article>
         <header>
@@ -110,8 +117,7 @@ export const pageQuery = graphql`
               wordpress_48
             }
         }
-        featP
-        ured_media{
+        featured_media{
           localFile{
             childImageSharp{
               id

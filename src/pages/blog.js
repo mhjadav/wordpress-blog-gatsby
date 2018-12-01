@@ -12,7 +12,7 @@ const Blog = () => (
           node {
             date(formatString: "DD, MMM YYYY")
             title
-            excerptP
+            excerpt
             author{
               name
             }
