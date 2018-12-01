@@ -31,6 +31,7 @@ body{
     margin: 0 -15px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .blog-grids .grid {
@@ -218,6 +219,9 @@ header h1 {
 }
 
 @media(max-width:768px){
+    .blog-grids .grid {
+        width:calc(75% - 30px);
+    }
     header {
         min-height: 300px;
     }
