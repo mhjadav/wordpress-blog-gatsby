@@ -31,6 +31,9 @@ const Layout = ({ children }) => (
           ]}
         >
           <html lang="en" />
+          <noscript>{`
+            Opps, I cann't work without javascript, will you please enable javascript.
+        `}</noscript>
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
